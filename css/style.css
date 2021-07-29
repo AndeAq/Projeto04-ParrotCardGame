@@ -1,0 +1,13 @@
+body {
+    background-color: #EEF9BF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-name {
+    color: #75B79E;
+    font-size: 56px;
+    font-weight: 700;
+    margin-top: 40px;
+}
