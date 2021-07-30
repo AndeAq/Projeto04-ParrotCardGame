@@ -49,6 +49,9 @@ function comparador() {
 let firstCard;
 let secondCard;
 let counter = 0;
+let turns = 0;
+let pairsFound = 0;
+const cardsNumber = 4;
 
 
 function compare (card) {
@@ -76,9 +79,15 @@ function compare (card) {
             firstCard = undefined;
             secondCard = undefined;
             counter = 0;
+            pairsFound ++;
         }
     }
 
+    turns ++;
+
+    if (pairsFound === cardsNumber/2) {
+        setTimeout(alert, 600, `Você ganhou em ${turns} jogadas!`);
+    }
 }
 
 
