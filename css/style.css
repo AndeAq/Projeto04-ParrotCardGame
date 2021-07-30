@@ -26,6 +26,10 @@ body {
     margin: 20px;
 }
 
+.hide {
+    display: none;
+}
+
 .face {
     width: 100%;
     height: 100%;
@@ -45,14 +49,14 @@ body {
     width:100%;
 }
 
-.back-face {
+.hide-back {
     transform: rotateY(180deg);
 }
 
-.card:active .back-face {
+.show-back {
     transform: rotateY(0deg);
 }
 
-.card:active .front-face {
+.hide-front {
     transform: rotateY(-180deg);
 }

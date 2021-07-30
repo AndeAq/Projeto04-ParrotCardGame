@@ -1,6 +1,7 @@
+/*/
 let cardsNumber = prompt("Com quantas cartas você quer jogar?");
 let shuffledDeck = [];
-const pairs = ["bobross", "bobross", "explody", "explody", "fiesta", "fiesta", "metal", "metal", "revertit", "revertit", "triplets", "triplets", "unicorn", "unicorn"];
+const cardsPairs = ["bobross", "bobross", "explody", "explody", "fiesta", "fiesta", "metal", "metal", "revertit", "revertit", "triplets", "triplets", "unicorn", "unicorn"];
 
 getCardsNumber();
 
@@ -35,7 +36,7 @@ function startGame() {
 
 function shuffleCards () {
     for (let i = 0; i < cardsNumber; i ++) {
-        shuffledDeck[i] = pairs[i];
+        shuffledDeck[i] = cardsPairs[i];
     }
     shuffledDeck.sort(comparador);
 }
@@ -43,6 +44,51 @@ function shuffleCards () {
 function comparador() { 
 	return Math.random() - 0.5; 
 }
+/*/
 
+let firstCard;
+let secondCard;
+let counter = 0;
+
+
+function compare (card) {
+
+
+
+    virar(card)
+
+    if (firstCard === undefined) {
+        firstCard = card;
+        counter ++;
+    } else {
+        secondCard = card;
+        counter ++;
+    }
+
+    if (counter === 2) {
+        if (firstCard.innerHTML !== secondCard.innerHTML) {
+            setTimeout(virar, 1000, firstCard);
+            setTimeout(virar, 1000, secondCard);
+            firstCard = undefined;
+            secondCard = undefined;
+            counter = 0;
+        } else {
+            firstCard = undefined;
+            secondCard = undefined;
+            counter = 0;
+        }
+    }
+
+}
+
+
+function virar (card) {
+    const front = card.querySelector(".face");
+    const back = card.querySelector(".hide-back");
+
+    front.classList.toggle("hide-front");
+    back.classList.toggle("show-back");
+
+}
 
 
