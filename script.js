@@ -1,4 +1,4 @@
-/*/
+
 let cardsNumber = prompt("Com quantas cartas você quer jogar?");
 let shuffledDeck = [];
 const cardsPairs = ["bobross", "bobross", "explody", "explody", "fiesta", "fiesta", "metal", "metal", "revertit", "revertit", "triplets", "triplets", "unicorn", "unicorn"];
@@ -20,12 +20,12 @@ function startGame() {
 
     for (let i = 0; i < cardsNumber; i ++) {
 
-        cards += `<div class="card">
-                    <div class="front-face face">
+        cards += `<div class="card" onclick="compare(this)">
+                    <div class="face">
                         <img src = "media/front.png" alt="Front Card Parrot">
                     </div>
-                    <div class="back-face face">
-                        <img src = "media/${shuffledDeck[i]}parrot.gif" alt="Parrot Gif">
+                    <div class="face hide-back">
+                        <img src = "media/${shuffledDeck[i]}parrot.gif" class="parrot" alt="Parrot Gif">
                     </div>
                     </div>`
     }
@@ -44,14 +44,13 @@ function shuffleCards () {
 function comparador() { 
 	return Math.random() - 0.5; 
 }
-/*/
+
 
 let firstCard;
 let secondCard;
 let counter = 0;
 let turns = 0;
 let pairsFound = 0;
-const cardsNumber = 4;
 
 
 function compare (card) {
