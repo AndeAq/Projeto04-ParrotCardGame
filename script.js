@@ -1,11 +1,14 @@
 
-let cardsNumber = prompt("Com quantas cartas você quer jogar?");
+let cardsNumber;
 let shuffledDeck = [];
 const cardsPairs = ["bobross", "bobross", "explody", "explody", "fiesta", "fiesta", "metal", "metal", "revertit", "revertit", "triplets", "triplets", "unicorn", "unicorn"];
+let seconds = 0;
 
 getCardsNumber();
 
+
 function getCardsNumber() {
+    cardsNumber = prompt("Com quantas cartas você quer jogar?");
     while ((cardsNumber % 2 !== 0) || (cardsNumber < 4) || (cardsNumber > 14)) {
         cardsNumber = prompt("Com quantas cartas você quer jogar?");
     }
@@ -16,6 +19,7 @@ function startGame() {
     const game = document.querySelector(".game");
     let cards = "";
     shuffleCards();
+    idClock = setInterval(clock, 1000);
 
 
     for (let i = 0; i < cardsNumber; i ++) {
@@ -31,6 +35,7 @@ function startGame() {
     }
 
     game.innerHTML = cards;
+    
 
 }
 
@@ -85,7 +90,20 @@ function compare (card) {
     turns ++;
 
     if (pairsFound === cardsNumber/2) {
-        setTimeout(alert, 600, `Você ganhou em ${turns} jogadas!`);
+        clearInterval(idClock);
+        setTimeout(alert, 600, `Você ganhou em ${turns} jogadas e em ${seconds} segundos!`);
+        setTimeout(replayGame, 601);
+    }
+}
+
+function replayGame () {
+    replay = prompt("De novo?");
+    if (replay === "sim") {
+        seconds = 0;
+        turns = 0;
+        pairsFound = 0;
+        shuffledDeck = [];
+        getCardsNumber();
     }
 }
 
@@ -99,4 +117,11 @@ function virar (card) {
 
 }
 
+
+
+function clock () {
+    seconds ++;
+    const clock = document.querySelector(".clock");
+    clock.innerHTML = `${seconds}s`;
+}
 

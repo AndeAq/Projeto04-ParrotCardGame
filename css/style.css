@@ -61,3 +61,11 @@ body {
 .hide-front {
     transform: rotateY(-180deg);
 }
+
+.clock {
+    position: absolute;
+    font-size: 60px;
+    top: 40px;
+    right: 70px;
+    color: #75B79E;
+}
