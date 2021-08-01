@@ -60,17 +60,23 @@ let pairsFound = 0;
 
 function compare (card) {
 
+    const isTurned = card.querySelector(".show-back")
 
+    if ( isTurned === null) {
 
-    virar(card)
+        virar(card)
 
-    if (firstCard === undefined) {
-        firstCard = card;
-        counter ++;
-    } else {
-        secondCard = card;
-        counter ++;
+        if (firstCard === undefined) {
+            firstCard = card;
+            counter ++;
+        } else {
+            secondCard = card;
+            counter ++;
+        }
+
+        turns ++;
     }
+
 
     if (counter === 2) {
         if (firstCard.innerHTML !== secondCard.innerHTML) {
@@ -87,7 +93,7 @@ function compare (card) {
         }
     }
 
-    turns ++;
+    
 
     if (pairsFound === cardsNumber/2) {
         clearInterval(idClock);
@@ -111,6 +117,8 @@ function replayGame () {
 function virar (card) {
     const front = card.querySelector(".face");
     const back = card.querySelector(".hide-back");
+
+    
 
     front.classList.toggle("hide-front");
     back.classList.toggle("show-back");
