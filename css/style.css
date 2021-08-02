@@ -20,18 +20,14 @@ body {
     justify-content: center;
 }
 
-.card {
+.game .card {
     width: 180px;
     height: 225px;
     position: relative;
     margin: 20px;
 }
 
-.hide {
-    display: none;
-}
-
-.face {
+.game .card .face {
     width: 100%;
     height: 100%;
     background-color: #A7E9AF;
@@ -46,26 +42,27 @@ body {
     transform-style: preserve-3d;
 }
 
-.face img {
+.game .card .face img {
     width:100%;
 }
 
-.hide-back {
+.game .card .hide-back {
     transform: rotateY(180deg);
 }
 
-.show-back {
+.game .card .show-back {
     transform: rotateY(0deg);
 }
 
-.hide-front {
+.game .card .hide-front {
     transform: rotateY(-180deg);
 }
 
 .clock {
     position: absolute;
-    font-size: 60px;
-    top: 40px;
-    right: 70px;
+    font-size: 50px;
+    font-weight: bold;
+    top: 0px;
+    right: 40px;
     color: #75B79E;
 }
